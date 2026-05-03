@@ -93,22 +93,21 @@ export default function TextForm(props) {
       </div>
 
       <button className="btn btn-primary" onClick={handleUppercase}>
-        Convert to Uppercase
+        <i className="fas fa-arrow-up"></i> Convert to Uppercase
       </button>
       <button className="btn btn-primary mx-2" onClick={handleLowercase}>
-        Convert to Lowercase
+        <i className="fas fa-arrow-down"></i> Convert to Lowercase
       </button>
       <button
         className="btn btn-primary mx-2"
         onClick={correctGrammar}
         disabled={loading}
       >
-       
-        {loading ? 'Correcting...' : 'Correct Grammar'}
+        <i className="fas fa-spell-check"></i> {loading ? 'Correcting...' : 'Correct Grammar'}
       </button>
 
       <button className="btn btn-secondary mx-2" onClick={findDuplicates}>
-        Find Duplicates
+        <i className="fas fa-search"></i> Find Duplicates
       </button>
      <button className="btn btn-secondary mx-2" onClick={handleClear}>
         Clear Text
@@ -117,7 +116,7 @@ export default function TextForm(props) {
       <div className="container my-3"  style={ {color: props.mode === 'dark' ? 'white' : 'black'},{color: props.mode === 'dark' ? 'white' : 'black'} }>
         <h2>Your text summary</h2>
         <p>
-          {text.split(' ').length} words and {text.length} characters
+          {text.split(' ').filter(word => word !== '').length} words and {text.length} characters
         </p>
         <p>{0.008 * text.split(' ').length} Minutes read</p>
 
