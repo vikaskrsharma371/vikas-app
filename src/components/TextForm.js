@@ -60,12 +60,19 @@ export default function TextForm(props) {
     setDuplicates(result)
   }
 
+
+  const handleClear = () => {
+    setText(""); // clears text
+  }
+
   const handleUppercase = () => {
     setText(text.toUpperCase())
+    props.showAlert("Converted to uppercase!", "success")
   }
 
   const handleLowercase = () => {
     setText(text.toLowerCase())
+    props.showAlert("Converted to lowercase!", "success")
   }
 
   const handleOnChange = (event) => {
@@ -74,13 +81,13 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="Container mb-3">
-        <h1>{props.heading}</h1>
+      <div className="Container mb-3" style={ {color: props.mode === 'dark' ? 'white' : 'black'},{color: props.mode === 'dark' ? 'white' : 'black'} }>
+        <h1>{props.heading}  </h1>
         <textarea
           className="form-control"
           id="myBox"
           rows="8"
-          value={text}
+          value={text} style={{ background: props.mode === 'dark' ? 'grey' : 'white' }}
           onChange={handleOnChange}
         ></textarea>
       </div>
@@ -96,13 +103,18 @@ export default function TextForm(props) {
         onClick={correctGrammar}
         disabled={loading}
       >
+       
         {loading ? 'Correcting...' : 'Correct Grammar'}
       </button>
+
       <button className="btn btn-secondary mx-2" onClick={findDuplicates}>
         Find Duplicates
       </button>
+     <button className="btn btn-secondary mx-2" onClick={handleClear}>
+        Clear Text
+      </button>
 
-      <div className="container my-3">
+      <div className="container my-3"  style={ {color: props.mode === 'dark' ? 'white' : 'black'},{color: props.mode === 'dark' ? 'white' : 'black'} }>
         <h2>Your text summary</h2>
         <p>
           {text.split(' ').length} words and {text.length} characters
