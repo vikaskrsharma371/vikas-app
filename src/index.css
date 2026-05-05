@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.accordion-button {
+  background-color: #137bea;
+  color: #0c0c0c13;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  font-size: 1.25rem;
+  cursor: pointer;
+}

@@ -81,7 +81,7 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="Container mb-3" style={ {color: props.mode === 'dark' ? 'white' : 'black'},{color: props.mode === 'dark' ? 'white' : 'black'} }>
+      <div className="Container mb-3" style={ {color: props.mode === 'dark' ? 'white' : 'black'} }>
         <h1>{props.heading}  </h1>
         <textarea
           className="form-control"
@@ -113,12 +113,12 @@ export default function TextForm(props) {
         Clear Text
       </button>
 
-      <div className="container my-3"  style={ {color: props.mode === 'dark' ? 'white' : 'black'},{color: props.mode === 'dark' ? 'white' : 'black'} }>
+      <div className="container my-3"  style={ {color: props.mode === 'dark' ? 'white' : 'black'} }>
         <h2>Your text summary</h2>
         <p>
-          {text.split(' ').filter(word => word !== '').length} words and {text.length} characters
+          {text.split(/\s+/).filter(word => word !== '').length} words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(' ').length} Minutes read</p>
+        <p>{0.008 * text.split(/\s+/).length} Minutes read</p>
 
         <h3>Preview</h3>
         <p>
